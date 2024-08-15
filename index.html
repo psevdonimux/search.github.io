@@ -50,13 +50,16 @@
  }
 }
 </style>
-<form onsubmit="location.replace('https://yandex.ru/search/touch/?text=' + this.searching.value);">
+<form onsubmit="search(this.searching.value);">
 <input name="searching" id="searching">
 </form>
 <a>
 <button id="one" onclick="clickOn()">ТЫК</button>
 </a>
 <script>
+function search(value){
+ location.replace('https://yandex.ru/search/touch/?text=' + value);
+}
 var design = new Design();
 var image = document.getElementById('hm');
 var symbol = 'd#$';
