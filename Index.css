@@ -1,7 +1,3 @@
-#hm {
- background-position: center center;
- background-size: 35%;
-}
 #one {
   position: absolute;
   margin: auto;
@@ -31,9 +27,6 @@
  background-color: transparent;
 }
 @media(orientation: portrait) {
- #hm {
-  background-size: 70%;
- }
  #one {
   top: -9.5%;
   width: 15%;
