@@ -26,6 +26,9 @@ var image = document.getElementById('hm').style;
 }
 }
 imageLoad();
+window.addEventListener('resize', function(){
+ imageLoad();
+});              
 design.cssMode(['hm', 'searching']);
 design.cssMode(['searching'], design.isDarkMode() ? '#FFFFFF' : '#000000', 'transparent');
 design.cssBorder(['searching']);
@@ -34,9 +37,6 @@ function clickOn(){
 var split = prompt().split(' ');
 var info = JSON.parse(localStorage.getItem('info'));
 var ls = info[split[0]];
-window.addEventListener('resize', function(){
- imageLoad();
-});             
 if(split[0] == "image" && split[1] != null){
  localStorage.setItem(split[0], split[1]);
  imageLoad();
