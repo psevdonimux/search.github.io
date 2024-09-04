@@ -32,6 +32,8 @@
  bottom: 0px;
  right: 0px;
  border-radius: 20px;
+ width: 10%;
+ height: 10%;
 }
 @media(orientation: portrait) {
  #one {
@@ -44,5 +46,11 @@
   height: 5%;
   font-size: 200%;
   border: 10px solid;
+ }
+ #mode {
+  width: 20%;
+  height: 4%;
+  font-size: 175%;
+  border-radius: 40px;
  }
 }
