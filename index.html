@@ -5,15 +5,24 @@
 <form onsubmit="search(event, this.searching.value);">
  <input name="searching" id="searching">
 </form>
-<a>
 <button id="one" onclick="clickOn()">ТЫК</button>
-</a>
+<button id="mode" onclick="modeUpdate()"></button>
 <script>
+var design = new Design();
 function search(event, value){
  event.preventDefault();
  location.replace('https://yandex.eu/search/touch/?text=' + value);
 }
-var design = new Design();
+function mode(){
+ design.cssMode(['hm', 'searching', 'mode']);
+ document.getElementById('mode').innerHTML = design.isDarkMode() ? 'Тёмный' : 'Светлый';
+ design.cssMode(['searching'], design.isDarkMode() ? '#FFFFFF' : '#000000', 'transparent');
+ design.cssBorder(['searching']);
+}
+function modeUpdate(){
+ design.updateMode();
+ mode();
+}
 if(localStorage.getItem('info') == null){
  localStorage.setItem('info', JSON.stringify({}));
 }
@@ -28,11 +37,8 @@ var image = document.getElementById('hm').style;
 imageLoad();
 window.addEventListener('resize', function(){
  imageLoad();
-});              
-design.cssMode(['hm', 'searching']);
-design.cssMode(['searching'], design.isDarkMode() ? '#FFFFFF' : '#000000', 'transparent');
-design.cssBorder(['searching']);
-window.addEventListener('resize')
+});      
+mode();
 function clickOn(){
 var split = prompt().split(' ');
 var info = JSON.parse(localStorage.getItem('info'));
@@ -65,6 +71,5 @@ else if(ls != null){
  location.replace(ls);
 }
 }
-design.setMode('dark');
 </script>
 </html>
