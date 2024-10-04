@@ -29,6 +29,17 @@
 <script>
 var design = new Design();
 design.createModal('modal', 'content', 'settings');
+function getWidth(divider, divider2){
+ return window.innerWidth < window.innerHeight ? (window.innerWidth / divider) + 'px' : (window.innerWidth / divider2) + 'px';
+}
+function getHeight(divider, divider2){
+ return window.innerWidth < window.innerHeight ? (window.innerHeight / divider) + 'px' : (window.innerHeight / divider2) + 'px';
+}
+function setWH(id, width, height){
+ var element = document.getElementById(id).style;
+ element.width = width;
+ element.height = height;
+}
 function search(event, value){
  event.preventDefault();
  location.replace((localStorage.getItem('search') ?? 'https://yandex.eu/search/touch/?text=') + value);
@@ -39,6 +50,7 @@ function mode(){
  design.cssMode(['searching'], design.isDarkMode() ? '#FFFFFF' : '#000000', 'transparent');
  design.cssBorder(['searching', 'settings', 'mode', 'optionsMenu', 'chatgpt']);
  design.imageMode(['imgc'], ['chatgpt.webp']);
+ design.cssBorder([]);
 }
 function modeUpdate(){
  design.updateMode();
@@ -65,9 +77,8 @@ var close = document.getElementById('close');
 chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён';
 chatgpt.onclick = function(){
  localStorage.setItem('chatgpt', localStorage.getItem('chatgpt') == 'true' ? 'false' : 'true');
- chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён';
- imgc.style.width = window.innerWidth < window.innerHeight ? ((window.innerWidth / 3) + 'px') : ((window.innerWidth / 5) + 'px');
- imgc.style.height = window.innerWidth < window.innerHeight ? ((window.innerHeight / 6.6) + 'px') : ((window.innerHeight / 2.37) + 'px');
+ chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён'; 
+ setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
 }; 
 transparent.value = localStorage.getItem('transparent') * 10 ?? 0;
 document.getElementById('settings').style.opacity = localStorage.getItem('transparent') ?? 1;
@@ -81,8 +92,7 @@ optionsMenu.onchange = function(event){
  localStorage.setItem('search', event.target.value);
 };
 if(localStorage.getItem('chatgpt') == 'true'){
- imgc.style.width = window.innerWidth < window.innerHeight ? ((window.innerWidth / 3) + 'px') : ((window.innerWidth / 5) + 'px');
- imgc.style.height = window.innerWidth < window.innerHeight ? ((window.innerHeight / 6.6) + 'px') : ((window.innerHeight / 2.37) + 'px');
+ setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
 }
 else{
  imgc.style.width = '0%';
@@ -93,16 +103,14 @@ imgc.onclick = function(){
 };
 function activate(){
  content.marginTop = window.innerWidth < window.innerHeight ? '80%' : '10%';
- content.width = window.innerWidth < window.innerHeight ? '60%' : '25%';
- content.height = window.innerWidth < window.innerHeight ? '23%' : '50%';
+ setWH('content', getWidth(1.5, 3.4), getHeight(3.1, 1.9));
  close.style.fontSize = window.innerWidth < window.innerHeight ? '400%' : '200%';
 }
 window.onresize = function(){
  imageLoad();
  if(localStorage.getItem('chatgpt') == 'true'){
-  imgc.style.width = window.innerWidth < window.innerHeight ? ((window.innerWidth / 3) + 'px') : ((window.innerWidth / 5) + 'px');
-  imgc.style.height = window.innerWidth < window.innerHeight ? ((window.innerHeight / 6.6) + 'px') : ((window.innerHeight / 2.37) + 'px');
- }
+  setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
+ } 
   activate();
 }; 
 optionsMenu.value = localStorage.getItem('search') ?? 'https://yandex.eu/search/touch/?text=';
