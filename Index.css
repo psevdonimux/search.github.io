@@ -1,0 +1,145 @@
+#one {
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  top: -28%;
+  bottom: 0px;
+  width: 12.5%;
+  height: 15%;
+  font-size: 125%;
+  opacity: 0;
+}
+#searching {
+ position: absolute;
+ margin: auto;
+ left: 0px;
+ right: 0px;
+ top: 0px;
+ bottom: 0px;
+ width: 50%;
+ height: 12.5%;
+ font-size: 125%;
+ border-radius: 50px;
+ border: 5px solid;
+ background-color: transparent;
+}
+#mode {
+ margin-top: -7%;
+ border-radius: 20px;
+ width: 30%;
+ height: 16%;
+}
+#settings {
+ position: absolute; 
+ margin: auto;
+ bottom: 0px;
+ right: 0px;
+ border-radius: 20px;
+ width: 10%;
+ height: 10%;
+}
+#title{
+  margin-top: -1%;
+}
+#msg{
+ margin-top: -13%;
+ font-size: 80%;
+}
+#msg2{
+ margin-top: 2.5%;
+ font-size: 80%;
+}
+#msg3{
+ margin-top: -4.5%;
+ font-size: 80%;
+}
+#optionsMenu{
+ margin-top: -6%;
+ width: 30%;
+ height: 12%;
+ border-radius: 20px;
+ text-align: center; 
+}
+#msg4{
+ margin-top: -4.5%;
+ font-size: 80%;
+}
+#chatgpt{
+ margin-top: -6.5%;
+ border-radius: 20px;
+ width: 30%;
+ height: 16%;
+}
+#imgc{
+ position: absolute;
+ margin: auto;
+ left: 0px;
+ right: 0px;
+ bottom: 0px;
+ top: 40%;
+}
+@media(orientation: portrait) {
+ #one {
+  top: -9.5%;
+  width: 15%;
+  height: 4.5%;
+ }
+ #searching {
+  width: 80%;
+  height: 5%;
+  font-size: 200%;
+  border: 10px solid;
+ }
+ #settings {
+  width: 20%;
+  height: 4%;
+  font-size: 175%;
+  border-radius: 40px;
+ }
+ #title{
+  font-size: 450%;
+ }
+ #msg{
+  margin-top: -10%;
+  font-size: 190%;
+ }
+ #transparent{
+  margin-top: 3%;
+  width: 49%;
+ }
+ #msg2{
+  margin-top: 5%;
+  font-size: 190%;
+ }
+ #mode {
+  margin-top: -5.5%;
+  width: 28%;
+  height: 14%;
+  font-size: 175%;
+  border-radius: 40px;
+ }
+ #msg3{
+  margin-top: -1%;
+  font-size: 190%;
+ }
+ #optionsMenu{
+  margin-top: -5%;
+  font-size: 190%;
+  border-radius: 30px;
+ }
+ #msg4{
+  margin-top: 2%;
+  font-size: 190%;
+ }
+ #chatgpt{
+  margin-top: -5%;
+  font-size: 190%;
+  width: 28%;
+  height: 14%;
+  border-radius: 30px;
+ } 
+ #imgc{
+  top: 15%;
+ }
+}
