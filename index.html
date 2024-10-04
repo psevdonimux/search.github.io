@@ -70,8 +70,8 @@ chatgpt.onclick = function(){
  imgc.style.height = localStorage.getItem('chatgpt') == 'true' ? '40%' : '0%';
 }; 
 transparent.value = localStorage.getItem('transparent') * 10 ?? 0;
-document.getElementById('settings').style.opacity = localStorage.getItem('transparent') ?? 0;
-document.getElementById('imgc').style.opacity = localStorage.getItem('transparent') ?? 0;
+document.getElementById('settings').style.opacity = localStorage.getItem('transparent') ?? 1;
+document.getElementById('imgc').style.opacity = localStorage.getItem('transparent') ?? 1;
 transparent.onchange = function(event){
  localStorage.setItem('transparent', event.target.value / 10);
  document.getElementById('settings').style.opacity = localStorage.getItem('transparent');
