@@ -66,8 +66,8 @@ chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён'
 chatgpt.onclick = function(){
  localStorage.setItem('chatgpt', localStorage.getItem('chatgpt') == 'true' ? 'false' : 'true');
  chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён';
- imgc.style.width = localStorage.getItem('chatgpt') == 'true' ? '20%' : '0%';
- imgc.style.height = localStorage.getItem('chatgpt') == 'true' ? '40%' : '0%';
+ imgc.style.width = window.innerWidth < window.innerHeight ? ((window.innerWidth / 3) + 'px') : ((window.innerWidth / 5) + 'px');
+ imgc.style.height = window.innerWidth < window.innerHeight ? ((window.innerHeight / 6.6) + 'px') : ((window.innerHeight / 2.37) + 'px');
 }; 
 transparent.value = localStorage.getItem('transparent') * 10 ?? 0;
 document.getElementById('settings').style.opacity = localStorage.getItem('transparent') ?? 1;
