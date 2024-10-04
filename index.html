@@ -37,7 +37,7 @@ function mode(){
  design.cssMode(['hm', 'searching', 'settings', 'mode', 'content', 'title', 'optionsMenu', 'chatgpt']); 
  document.getElementById('mode').innerHTML = design.isDarkMode() ? 'Тёмная' : 'Светлая';
  design.cssMode(['searching'], design.isDarkMode() ? '#FFFFFF' : '#000000', 'transparent');
- design.cssBorder(['searching']);
+ design.cssBorder(['searching', 'settings', 'mode', 'optionsMenu', 'chatgpt']);
  design.imageMode(['imgc'], ['chatgpt.webp']);
 }
 function modeUpdate(){
