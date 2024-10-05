@@ -117,7 +117,7 @@
   margin-top: -5.5%;
   width: 28%;
   height: 14%;
-  font-size: 175%;
+  font-size: 120%;
   border-radius: 40px;
  }
  #msg3{
@@ -126,7 +126,7 @@
  }
  #optionsMenu{
   margin-top: -5%;
-  font-size: 190%;
+  font-size: 120%;
   border-radius: 30px;
  }
  #msg4{
@@ -135,7 +135,7 @@
  }
  #chatgpt{
   margin-top: -5%;
-  font-size: 150%;
+  font-size: 120%;
   width: 28%;
   height: 14%;
   border-radius: 30px;
