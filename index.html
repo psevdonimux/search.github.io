@@ -12,16 +12,16 @@
 <div id="content">
 <h1 id="title">Настройки</h1>
 <input type="range" id="transparent" min="0" max="10" /> 
-<p id="msg">Прозрачность кнопок<p>
-<p id="msg2">Тема<p>
-<button id="mode" onclick="modeUpdate()"></button> 
-<p id="msg3">Поисковик<p>
+<p id="msg">Прозрачность кнопок:<p>
+<p id="msg2">Тема:<p>
+<button id="mode" onclick="design.updateMode(); mode();"></button> 
+<p id="msg3">Поисковик:<p>
 <select id="optionsMenu">
  <option value="https://yandex.eu/search/touch/?text=">Yandex</option>
  <option value="https://www.google.com/search?q=">Google</option>
  <option value="https://www.bing.com/search?q=">Bing</option>
 </select>
-<p id="msg4">ChatGPT<p>
+<p id="msg4">ChatGPT:<p>
 <button id="chatgpt"></button> 
 </div>
 </div>
@@ -29,6 +29,19 @@
 <script>
 var design = new Design();
 design.createModal('modal', 'content', 'settings');
+var transparent = document.getElementById('transparent');
+var transparentValue = localStorage.getItem('transparent');
+var optionsMenu = document.getElementById('optionsMenu');
+var content = document.getElementById('content').style;
+var chatgpt = document.getElementById('chatgpt');
+var imgc = document.getElementById('imgc');
+var close = document.getElementById('close');
+var settings = document.getElementById('settings');
+var msg2 = document.getElementById('msg2');
+var elMode = document.getElementById('mode');
+var msg3 = document.getElementById('msg3');
+var msg4 = document.getElementById('msg4'); 
+var chatgpt = document.getElementById('chatgpt'); 
 function getWidth(divider, divider2){
  return window.innerWidth < window.innerHeight ? (window.innerWidth / divider) + 'px' : (window.innerWidth / divider2) + 'px';
 }
@@ -50,14 +63,6 @@ function mode(){
  design.cssMode(['searching'], design.isDarkMode() ? '#FFFFFF' : '#000000', 'transparent');
  design.cssBorder(['searching', 'settings', 'mode', 'optionsMenu', 'chatgpt']);
  design.imageMode(['imgc'], ['chatgpt.webp']);
- design.cssBorder([]);
-}
-function modeUpdate(){
- design.updateMode();
- mode();
-}
-if(localStorage.getItem('info') == null){
- localStorage.setItem('info', JSON.stringify({}));
 }
 function imageLoad(){
 var imageSrc = localStorage.getItem('image');
@@ -67,58 +72,74 @@ var image = document.getElementById('hm').style;
  image.backgroundSize = `${window.innerWidth}px ${window.innerHeight}px`;
 }
 }
-imageLoad();
-var transparent = document.getElementById('transparent');
-var optionsMenu = document.getElementById('optionsMenu');
-var content = document.getElementById('content').style;
-var chatgpt = document.getElementById('chatgpt');
-var imgc = document.getElementById('imgc');
-var close = document.getElementById('close');
-chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён';
+function chatGptStatusButton(){
+ chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён';
+}
+function modeChatGpt(){
+ if(localStorage.getItem('chatgpt') == 'true'){
+  setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
+ }
+ else{
+  setWH('imgc', '0%', '0%'); 
+ }
+}
+function setOpacity(id, value){
+ document.getElementById(id).style.opacity = value;
+}
+function activate(){
+ content.marginTop = getHeight(3, 5);
+ setWH('content', getWidth(1.5, 3.4), getHeight(3.1, 1.9));
+ msg2.style.right = getWidth(1.73, 1.87);
+ msg2.style.top = getHeight(2.29, 2.31);
+ elMode.style.top = getHeight(2.12, 2.21);
+ elMode.style.right = getWidth(2.35, 2.22);
+ setWH('mode',  getWidth(7, 12.5), getHeight(35, 16.9));  
+ msg3.style.right = getWidth(2.05, 2.01);
+ msg3.style.top = getHeight(1.96, 1.85);
+ optionsMenu.style.top = getHeight(1.91, 1.79);
+ optionsMenu.style.right = getWidth(2.93, 2.42);
+ setWH('optionsMenu',  getWidth(7, 12.5), getHeight(35, 16.9));  
+ msg4.style.right = getWidth(1.90, 1.95);
+ msg4.style.top = getHeight(1.82, 1.54);
+ chatgpt.style.right = getWidth(2.66, 2.33);
+ chatgpt.style.top = getHeight(1.73, 1.49);
+ setWH('chatgpt',  getWidth(7, 12.5), getHeight(35, 16.9));  
+ close.style.fontSize = window.innerWidth < window.innerHeight ? '400%' : '200%';
+}
 chatgpt.onclick = function(){
  localStorage.setItem('chatgpt', localStorage.getItem('chatgpt') == 'true' ? 'false' : 'true');
- chatgpt.innerHTML = localStorage.getItem('chatgpt') == 'true' ? 'Включён' : 'Отключён'; 
- setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
+ chatGptStatusButton();
+ modeChatGpt();
 }; 
-transparent.value = localStorage.getItem('transparent') * 10 ?? 0;
-document.getElementById('settings').style.opacity = localStorage.getItem('transparent') ?? 1;
-document.getElementById('imgc').style.opacity = localStorage.getItem('transparent') ?? 1;
-transparent.onchange = function(event){
- localStorage.setItem('transparent', event.target.value / 10);
- document.getElementById('settings').style.opacity = localStorage.getItem('transparent');
- document.getElementById('imgc').style.opacity = localStorage.getItem('transparent');
-};
 optionsMenu.onchange = function(event){
  localStorage.setItem('search', event.target.value);
 };
-if(localStorage.getItem('chatgpt') == 'true'){
- setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
-}
-else{
- imgc.style.width = '0%';
- imgc.style.height = '0%';
-}
 imgc.onclick = function(){
  location.replace('https://dev.yqcloud.top/');
 };
-function activate(){
- content.marginTop = window.innerWidth < window.innerHeight ? '80%' : '10%';
- setWH('content', getWidth(1.5, 3.4), getHeight(3.1, 1.9));
- close.style.fontSize = window.innerWidth < window.innerHeight ? '400%' : '200%';
-}
 window.onresize = function(){
  imageLoad();
- if(localStorage.getItem('chatgpt') == 'true'){
-  setWH('imgc',  getWidth(3, 5), getHeight(6.6, 2.37));  
- } 
-  activate();
+ modeChatGpt();
+ activate(); 
 }; 
+transparent.onchange = function(event){
+ var value = event.target.value / 10;
+ localStorage.setItem('transparent', value);
+ setOpacity('settings', value);
+ setOpacity('imgc', value);
+};
+transparent.value = transparentValue * 10 ?? 0;
+setOpacity('settings', transparentValue ?? 1);
+setOpacity('imgc', transparentValue ?? 1);
 optionsMenu.value = localStorage.getItem('search') ?? 'https://yandex.eu/search/touch/?text=';
+imageLoad();
+chatGptStatusButton();
+modeChatGpt();
 activate();
 mode();
 function clickOn(){
 var split = prompt().split(' ');
-var info = JSON.parse(localStorage.getItem('info'));
+var info = JSON.parse(localStorage.getItem('info') ?? JSON.stringify({}));
 var ls = info[split[0]];
 if(split[0] == "image" && split[1] != null){
  localStorage.setItem(split[0], split[1]);
