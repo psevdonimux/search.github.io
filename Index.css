@@ -24,17 +24,17 @@
  border: 5px solid;
  background-color: transparent;
 }
-#mode {
- margin-top: -7%;
+#mode { 
+ position: absolute; 
  border-radius: 20px;
- width: 30%;
- height: 16%;
+ /*width: 8%;
+ height: 6%;*/
 }
 #settings {
  position: absolute; 
  margin: auto;
- bottom: 0px;
- right: 0px;
+ top: 3.5%;
+ left: 5%;
  border-radius: 20px;
  width: 10%;
  height: 10%;
@@ -47,29 +47,30 @@
  font-size: 80%;
 }
 #msg2{
- margin-top: 2.5%;
+ position: absolute; 
  font-size: 80%;
 }
 #msg3{
- margin-top: -4.5%;
+ position: absolute; 
  font-size: 80%;
 }
 #optionsMenu{
- margin-top: -6%;
- width: 30%;
- height: 12%;
+ position: absolute; 
+ width: 8%;
+ height: 6%;
  border-radius: 20px;
  text-align: center; 
 }
 #msg4{
- margin-top: -4.5%;
+ position: absolute;
+ //margin-top: -4.5%;
  font-size: 80%;
 }
 #chatgpt{
- margin-top: -6.5%;
+ position: absolute;
  border-radius: 20px;
- width: 30%;
- height: 16%;
+ width: 8%;
+ height: 6%;
 }
 #imgc{
  position: absolute;
@@ -108,8 +109,8 @@
   margin-top: 3%;
   width: 49%;
  }
- #msg2{
-  margin-top: 5%;
+ #msg2{  
+  top: 50%;
   font-size: 190%;
  }
  #mode {
@@ -134,7 +135,7 @@
  }
  #chatgpt{
   margin-top: -5%;
-  font-size: 190%;
+  font-size: 150%;
   width: 28%;
   height: 14%;
   border-radius: 30px;
