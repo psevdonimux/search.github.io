@@ -26,8 +26,9 @@
 }
 #mode { 
  //position: absolute; 
+ font-size: 65%;
  border-radius: 20px;
- margin-right: 47%; 
+ margin-right: 55%; 
 }
 #settings {
  position: absolute; 
@@ -48,14 +49,14 @@
 #msg2{
  //position: absolute;  
  margin-left: 70%; 
- margin-top: 4%;
+ margin-top: 10%;
  font-size: 80%;
 }
 #msg3{
  //position: absolute; 
- margin-left: 65%; 
+ margin-left: 60%; 
  font-size: 80%;
- margin-top: -90%;
+ margin-top: -4.7%;
 }
 #optionsMenu{
  //position: absolute; 
@@ -63,6 +64,7 @@
  height: 6%;
  border-radius: 20px;
  //margin-right: 12%;  
+ font-size: 65%;
  text-align: center;
 }
 #msg4{
@@ -74,8 +76,9 @@
 #chatgpt{
  //position: absolute;
  border-radius: 20px;
- margin-right: 18%;  
+ margin-right: 32%;  
  //margin-top: 90%;
+ font-size: 55%;
  width: 8%;
  height: 6%;
 }
@@ -117,11 +120,12 @@
   width: 49%;
  }
  #msg2{  
-  top: 50%;
+  margin-top: 4%;
   font-size: 190%;
  }
  #mode {
   margin-top: -5.5%;
+  margin-right: 47%; 
   width: 28%;
   height: 14%;
   font-size: 120%;
@@ -129,6 +133,7 @@
  }
  #msg3{
   margin-top: -1%;
+  margin-left: 65%; 
   font-size: 190%;
  }
  #optionsMenu{
@@ -138,10 +143,12 @@
  }
  #msg4{
   margin-top: 2%;
+  margin-left: 65%; 
   font-size: 190%;
  }
  #chatgpt{
   margin-top: -5%;
+  margin-right: 18%;  
   font-size: 120%;
   width: 28%;
   height: 14%;
