@@ -25,10 +25,9 @@
  background-color: transparent;
 }
 #mode { 
- position: absolute; 
+ //position: absolute; 
  border-radius: 20px;
- /*width: 8%;
- height: 6%;*/
+ margin-right: 47%; 
 }
 #settings {
  position: absolute; 
@@ -47,7 +46,9 @@
  font-size: 80%;
 }
 #msg2{
- position: absolute; 
+ //position: absolute;  
+ margin-left: 70%; 
+ margin-top: 4%;
  font-size: 80%;
 }
 #msg3{
