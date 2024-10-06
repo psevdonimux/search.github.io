@@ -128,7 +128,7 @@ transparent.onchange = function(event){
  setOpacity('settings', value);
  setOpacity('imgc', value);
 };
-transparent.value = transparentValue * 10 ?? 0;
+transparent.value = transparentValue ? transparentValue * 10 : 10;
 setOpacity('settings', transparentValue ?? 1);
 setOpacity('imgc', transparentValue ?? 1);
 optionsMenu.value = localStorage.getItem('search') ?? 'https://yandex.eu/search/touch/?text=';
