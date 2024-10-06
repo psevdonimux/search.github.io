@@ -1,6 +1,6 @@
 <html id="hm">
 <title>Поисковик</title>
-<meta name="viewport" content="user-scalable=no, initial-scale=0.4">
+<meta name="viewport" content="user-scalable=no">
 <script src="Design.js"></script>
 <link rel="stylesheet" href="Index.css">
 <link rel="icon" href="image/icon.webp">
@@ -14,8 +14,10 @@
 <h1 id="title">Настройки</h1>
 <input type="range" id="transparent" min="0" max="10" /> 
 <p id="msg">Прозрачность кнопок:<p>
+<div id="grid-container">
 <p id="msg2">Тема:<p>
 <button id="mode" onclick="design.updateMode(); mode();"></button> 
+</div>
 <p id="msg3">Поисковик:<p>
 <select id="optionsMenu">
  <option value="https://yandex.eu/search/touch/?text=">Yandex</option>
@@ -90,11 +92,19 @@ function setOpacity(id, value){
 function activate(){
  content.marginTop = getHeight(3, 5);
  setWH('content', getWidth(1.5, 3.4), getHeight(3.1, 1.9));
- msg2.style.right = getWidth(1.73, 1.87);
+ /*msg2.style.right = getWidth(1.73, 1.87);
  msg2.style.top = getHeight(2.29, 2.31);
  elMode.style.top = getHeight(2.12, 2.21);
- elMode.style.right = getWidth(2.27, 2.22);
+ elMode.style.right = getWidth(2.27, 2.22);*/
+//elMode.style.marginRight = '50%';
  setWH('mode',  getWidth(8, 12.5), getHeight(40, 16.9));  
+ document.getElementById('grid-container').style.cssText = `
+    display: grid;
+    grid-template-columns: auto auto; /* Две колонки */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    margin-top: 13%;
+    margin-right: 20%;
+ `;
  msg3.style.right = getWidth(2.05, 2.01);
  msg3.style.top = getHeight(1.96, 1.85);
  optionsMenu.style.top = getHeight(1.91, 1.79);
@@ -121,7 +131,11 @@ imgc.onclick = function(){
 window.onresize = function(){
  imageLoad();
  modeChatGpt();
- activate(); 
+ activate();
+ const els = document.getElementById('mode');
+ const width = els.offsetWidth;
+ const height = els.offsetHeight;
+ //alert(`Ширина: ${width}px, Высота: ${height}px и телефон: ` + window.innerWidth + ':' + window.innerHeight + 'ширину делим' + (window.innerWidth / width) + ' высоту делим' + (window.innerHeight / height));
 }; 
 transparent.onchange = function(event){
  var value = event.target.value / 10;
