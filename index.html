@@ -101,40 +101,58 @@ function activate(){
  elMode.style.top = getHeight(2.12, 2.21);
  elMode.style.right = getWidth(2.27, 2.22);*/
 //elMode.style.marginRight = '50%';
- setWH('mode',  getWidth(8, 12.5), getHeight(40, 16.9));  
- document.getElementById('column').style.cssText = `
+ setWH('mode',  getWidth(8, 17), getHeight(40, 25));  
+ document.getElementById('column').style.cssText = window.innerWidth < window.innerHeight ? `
     display: grid;
     grid-template-columns: auto auto; 
     align-items: center; 
     margin-top: 13%;
     margin-right: 20%;
+ ` : `
+    display: grid;
+    grid-template-columns: auto auto; 
+    align-items: center; 
+    margin-top: 10%;
+    margin-right: 13%;
  `;
  /*msg3.style.right = getWidth(2.05, 2.01);
  msg3.style.top = getHeight(1.96, 1.85);
  optionsMenu.style.top = getHeight(1.91, 1.79);
  optionsMenu.style.right = getWidth(2.85, 2.42);*/
- setWH('optionsMenu',  getWidth(8, 12.5), getHeight(40, 16.9));  
- optionsMenu.style.marginTop = '-13%';
- optionsMenu.style.marginRight = '-30%';
- document.getElementById('column2').style.cssText = `
+ setWH('optionsMenu',  getWidth(8, 17), getHeight(40, 25));  
+ optionsMenu.style.marginTop = window.innerWidth < window.innerHeight ? '-13%' : '-15%';
+ optionsMenu.style.marginRight = window.innerWidth < window.innerHeight ? '-30%' : '17%';
+ document.getElementById('column2').style.cssText = window.innerWidth < window.innerHeight ? `
     display: grid;
     grid-template-columns: auto auto; 
     align-items: center; 
     margin-top: 8%;
     margin-right: 27%;
+ ` : `
+    display: grid;
+    grid-template-columns: auto auto; 
+    align-items: center; 
+    margin-top: 5%;
+    margin-right: 13%;
  `;
  /*msg4.style.right = getWidth(1.90, 1.95);
  msg4.style.top = getHeight(1.82, 1.54);
  chatgpt.style.right = getWidth(2.58, 2.33);
  chatgpt.style.top = getHeight(1.73, 1.49);*/
- chatgpt.style.marginTop = '-7.5%';
- setWH('chatgpt',  getWidth(8, 12.5), getHeight(40, 16.9));  
- document.getElementById('column3').style.cssText = `
+ chatgpt.style.marginTop = window.innerWidth < window.innerHeight ? '-7.5%' : '1%';
+ setWH('chatgpt',  getWidth(8, 17), getHeight(40, 25));  
+ document.getElementById('column3').style.cssText = window.innerWidth < window.innerHeight ? `
     display: grid;
     grid-template-columns: auto auto; 
     align-items: center; 
     margin-top: 8%;
     margin-right: 20%;
+ ` : `
+    display: grid;
+    grid-template-columns: auto auto; 
+    align-items: center; 
+    margin-top: 0%;
+    margin-right: 13%;  
  `;
  close.style.fontSize = window.innerWidth < window.innerHeight ? '400%' : '200%';
 }
@@ -206,4 +224,5 @@ else if(ls != null){
 }
 }
 </script>
+<script src="Moving.js"></script>
 </html>
