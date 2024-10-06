@@ -52,24 +52,30 @@
  font-size: 80%;
 }
 #msg3{
- position: absolute; 
+ //position: absolute; 
+ margin-left: 65%; 
  font-size: 80%;
+ margin-top: -90%;
 }
 #optionsMenu{
- position: absolute; 
+ //position: absolute; 
  width: 8%;
  height: 6%;
  border-radius: 20px;
- text-align: center; 
+ //margin-right: 12%;  
+ text-align: center;
 }
 #msg4{
- position: absolute;
+ //position: absolute;
  //margin-top: -4.5%;
+ margin-left: 65%; 
  font-size: 80%;
 }
 #chatgpt{
- position: absolute;
+ //position: absolute;
  border-radius: 20px;
+ margin-right: 18%;  
+ //margin-top: 90%;
  width: 8%;
  height: 6%;
 }
