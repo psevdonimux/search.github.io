@@ -14,18 +14,22 @@
 <h1 id="title">Настройки</h1>
 <input type="range" id="transparent" min="0" max="10" /> 
 <p id="msg">Прозрачность кнопок:<p>
-<div id="grid-container">
+<div id="column">
 <p id="msg2">Тема:<p>
 <button id="mode" onclick="design.updateMode(); mode();"></button> 
 </div>
+<div id="column2">
 <p id="msg3">Поисковик:<p>
 <select id="optionsMenu">
  <option value="https://yandex.eu/search/touch/?text=">Yandex</option>
  <option value="https://www.google.com/search?q=">Google</option>
  <option value="https://www.bing.com/search?q=">Bing</option>
 </select>
+</div>
+<div id="column3">
 <p id="msg4">ChatGPT:<p>
 <button id="chatgpt"></button> 
+</div>
 </div>
 </div>
 <img id="imgc">
@@ -98,23 +102,40 @@ function activate(){
  elMode.style.right = getWidth(2.27, 2.22);*/
 //elMode.style.marginRight = '50%';
  setWH('mode',  getWidth(8, 12.5), getHeight(40, 16.9));  
- document.getElementById('grid-container').style.cssText = `
+ document.getElementById('column').style.cssText = `
     display: grid;
-    grid-template-columns: auto auto; /* Две колонки */
-    align-items: center; /* Вертикальное выравнивание по центру */
+    grid-template-columns: auto auto; 
+    align-items: center; 
     margin-top: 13%;
     margin-right: 20%;
  `;
- msg3.style.right = getWidth(2.05, 2.01);
+ /*msg3.style.right = getWidth(2.05, 2.01);
  msg3.style.top = getHeight(1.96, 1.85);
  optionsMenu.style.top = getHeight(1.91, 1.79);
- optionsMenu.style.right = getWidth(2.85, 2.42);
+ optionsMenu.style.right = getWidth(2.85, 2.42);*/
  setWH('optionsMenu',  getWidth(8, 12.5), getHeight(40, 16.9));  
- msg4.style.right = getWidth(1.90, 1.95);
+ optionsMenu.style.marginTop = '-13%';
+ optionsMenu.style.marginRight = '-30%';
+ document.getElementById('column2').style.cssText = `
+    display: grid;
+    grid-template-columns: auto auto; 
+    align-items: center; 
+    margin-top: 8%;
+    margin-right: 27%;
+ `;
+ /*msg4.style.right = getWidth(1.90, 1.95);
  msg4.style.top = getHeight(1.82, 1.54);
  chatgpt.style.right = getWidth(2.58, 2.33);
- chatgpt.style.top = getHeight(1.73, 1.49);
+ chatgpt.style.top = getHeight(1.73, 1.49);*/
+ chatgpt.style.marginTop = '-7.5%';
  setWH('chatgpt',  getWidth(8, 12.5), getHeight(40, 16.9));  
+ document.getElementById('column3').style.cssText = `
+    display: grid;
+    grid-template-columns: auto auto; 
+    align-items: center; 
+    margin-top: 8%;
+    margin-right: 20%;
+ `;
  close.style.fontSize = window.innerWidth < window.innerHeight ? '400%' : '200%';
 }
 chatgpt.onclick = function(){
